@@ -86,6 +86,10 @@ class SQLParser(Parser):
     def set(self, p):
         return Set(arg=p.expr)
 
+    @_('SET expr=value1')
+    def set(self, p):
+        return Set(arg=p.expr)
+
     @_('SET id identifier')
     def set(self, p):
         if not p.id.lower() == 'names':
